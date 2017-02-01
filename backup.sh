@@ -34,7 +34,7 @@ object="$S3_PATH/$stamp/$filename"
 echo -e "\e[1;34m$db\e[00m"
 
 # Dump and zip
-echo -e "  streaming \e[0;35m$tmpfile\e[00m"
+echo -e "  streaming \e[0;35m$object\e[00m"
 mysqldump -u$MYSQL_USER -p$MYSQL_PASSWORD -h$MYSQL_HOST --ssl-ca=/app/rds-combined-ca-bundle.pem --force --opt --databases "$db" | bzip2 -c | /app/vendor/gof3r_0.5.0_linux_amd64/gof3r put "$object"
 
 # Jobs a goodun
