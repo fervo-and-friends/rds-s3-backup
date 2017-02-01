@@ -28,22 +28,14 @@ stamp=`date +"%s - %A %d %B %Y @ %H%M"`
 
 # Define our filenames
 filename="$db - $stamp.sql.bz2"
-tmpfile="/tmp/$filename"
 object="$S3_PATH/$stamp/$filename"
 
 # Feedback
 echo -e "\e[1;34m$db\e[00m"
 
 # Dump and zip
-echo -e "  creating \e[0;35m$tmpfile\e[00m"
-mysqldump -u$MYSQL_USER -p$MYSQL_PASSWORD -h$MYSQL_HOST --ssl-ca=/app/rds-combined-ca-bundle.pem --force --opt --databases "$db" | bzip2 -c > "$tmpfile"
-
-# Upload
-echo -e "  uploading..."
-aws cp "$tmpfile" "$object"
-
-# Delete
-rm -f "$tmpfile"
+echo -e "  streaming \e[0;35m$tmpfile\e[00m"
+mysqldump -u$MYSQL_USER -p$MYSQL_PASSWORD -h$MYSQL_HOST --ssl-ca=/app/rds-combined-ca-bundle.pem --force --opt --databases "$db" | bzip2 -c | /app/vendor/gof3r_0.5.0_linux_amd64/gof3r put "$object"
 
 # Jobs a goodun
 echo -e "\e[1;32mDone\e[00m"
