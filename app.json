@@ -1,10 +1,10 @@
 {
   "name": "Fervo RDS-S3 backup tool",
   "website": "https://www.fervo.se/",
-  "repository": "https://github.com/heroku/heroku-buildpack-apt",
+  "repository": "https://github.com/fervo-and-friends/rds-s3-backup",
   "buildpacks": [
     {
-      "url": "https://github.com/stomita/heroku-buildpack-phantomjs"
+      "url": "https://github.com/heroku/heroku-buildpack-apt"
     }
   ]
 }
