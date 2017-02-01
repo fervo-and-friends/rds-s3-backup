@@ -1,3 +1,3 @@
-https://dev.mysql.com/get/mysql-apt-config_0.8.1-1_all.deb
-mysql-client-5.7
+https://repo.mysql.com/apt/ubuntu/pool/mysql-5.7/m/mysql-community/mysql-common_5.7.17-1ubuntu14.04_amd64.deb
+https://repo.mysql.com/apt/ubuntu/pool/mysql-5.7/m/mysql-community/mysql-community-client_5.7.17-1ubuntu14.04_amd64.deb
 awscli
